@@ -8,13 +8,13 @@ import (
 )
 
 func pingHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "PONG!"})
+	c.JSON(http.StatusOK, baseJSONMessage("PONG!"))
 }
 
 func helpHandler(c *gin.Context) {
 	if msg, err := lib.GetHelp(); err == nil {
-		c.JSON(http.StatusOK, baseJsonMessage(msg))
+		c.JSON(http.StatusOK, baseJSONMessage(msg))
 	} else {
-		c.JSON(http.StatusInternalServerError, baseJsonMessage(err.Error()))
+		c.JSON(http.StatusInternalServerError, baseJSONMessage(err.Error()))
 	}
 }
